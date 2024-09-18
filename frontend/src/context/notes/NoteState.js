@@ -3,7 +3,8 @@ import NoteContext from "./noteContext";
 
 
 const NoteState = (props) => {
-    const host = "http://localhost:5000";
+    const host = process.env.NODE_ENV === 'production' ? 'https://inotebook-26k4.onrender.com/' : 'http://localhost:5000';
+
     const notesInitial = []
     const [notes, setNotes] = useState(notesInitial);
 
@@ -81,7 +82,7 @@ const NoteState = (props) => {
                 newNotes[index].tag = tag;
                 break;
             }
-            
+
         }
         setNotes(newNotes);
     }
