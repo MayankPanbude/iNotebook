@@ -3,7 +3,7 @@ import NoteContext from "./noteContext";
 
 
 const NoteState = (props) => {
-    const host = "http://localhost:5000";
+    const host = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
     const notesInitial = []
     const [notes, setNotes] = useState(notesInitial);
 
